@@ -36,9 +36,10 @@
     "@glimmer/util": "^0.41.0",
     "@glimmer/vm": "^0.41.0",
     "@glimmer/wire-format": "^0.41.0",
-    "glimmer-analyzer": "^0.3.3",
-    "glimmer-native": "^0.0.5",
+    "glimmer-analyzer": "https://github.com/bakerac4/glimmer-analyzer.git#master",
+    "glimmer-native": "git+https://github.com/bakerac4/glimmer-native.git#f2440e140f97bbc71c0726cf7f3ae53dc444527f",
     "nativescript-theme-core": "^1.0.6",
+    "nativescript-ui-listview": "^7.1.0",
     "tns-core-modules": "^6.0.7"
   },
   "devDependencies": {

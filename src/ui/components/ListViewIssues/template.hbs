@@ -1,5 +1,82 @@
-<Page>
-  <ActionBar>
-    <Label text={{this.title}} class="label" />
-  </ActionBar>
+<Page class="page home">
+    <GridLayout rows="auto,*,50">
+        <PostUploadsList row="0" @posts={{this.posts}} @onPostReady={{this.refreshList}} />
+        {{#if this.loadingInitialPosts}}
+            <StackLayout row="1" height="100%">
+                <GridLayout class="ph-item" rows="auto" height="300">
+                    <FlexboxLayout row="0">
+                        <FlexboxLayout class="ph-row" alignItems="center" height="60">
+                            <Label class="ph-avatar" height="40" width="40" />
+                            <Label class="ph-col-6" marginLeft="10" />
+                        </FlexboxLayout>
+                        <Label class="ph-picture" />
+                        <FlexboxLayout class="ph-row" alignItems="flex-start">
+                            <Label class="ph-col-2 large" />
+                            <Label class="ph-col-10" />
+                            <Label class="ph-col-4" />
+                        </FlexboxLayout>
+                    </FlexboxLayout>
+                    <FlexboxLayout class="background" row="0" />
+                </GridLayout>
+                <GridLayout class="ph-item" rows="auto" height="300">
+                    <FlexboxLayout row="0">
+                        <FlexboxLayout class="ph-row" alignItems="center" height="60">
+                            <Label class="ph-avatar" height="40" width="40" />
+                            <Label class="ph-col-6" marginLeft="10" />
+                        </FlexboxLayout>
+                        <Label class="ph-picture" />
+                        <FlexboxLayout class="ph-row" alignItems="flex-start">
+                            <Label class="ph-col-2 large" />
+                            <Label class="ph-col-10" />
+                            <Label class="ph-col-4" />
+                        </FlexboxLayout>
+                    </FlexboxLayout>
+                    <FlexboxLayout class="background" row="0" />
+                </GridLayout>
+                <GridLayout class="ph-item" rows="auto" height="300">
+                    <FlexboxLayout row="0">
+                        <FlexboxLayout class="ph-row" alignItems="center" height="60">
+                            <Label class="ph-avatar" height="40" width="40" />
+                            <Label class="ph-col-6" marginLeft="10" />
+                        </FlexboxLayout>
+                        <Label class="ph-picture" />
+                        <FlexboxLayout class="ph-row" alignItems="flex-start" height="60">
+                            <Label class="ph-col-2 large" />
+                            <Label class="ph-col-10" />
+                            <Label class="ph-col-4" />
+                        </FlexboxLayout>
+                    </FlexboxLayout>
+                    <FlexboxLayout class="background" row="0" />
+                </GridLayout>
+            </StackLayout>
+        {{else}}
+            {{!-- <RadListView
+                row="1"
+                loadOnDemandBufferSize="10"
+                loadOnDemandMode={{this.loadMode}}
+                @items={{this.posts}}
+                {{on "loadMoreDataRequested" this.loadMore}}
+                {{on "itemLoading" this.itemLoading}}
+            >
+                <Template @src={{this.listViewTemplate}} @showOriginal={{false}} @itemClicked={{this.onLoaded}} />
+            </RadListView> --}}
+            <ListView
+                @items={{this.posts}}
+                @itemTemplateSelector={{this.selectItemTemplate}}
+                @keyedTemplates={{this.keyedTemplates}}
+                iosEstimatedRowHeightProperty="0"
+                separatorColor="transparent"
+                row="1"
+                class="bg-white"
+                {{on "loadMoreItems" this.loadMore}}
+                {{on "pan" this.listViewMoved}}
+                {{on "itemLoading" this.itemLoading}}
+            >
+                {{!-- <Template @src={{this.listViewTemplate}} @showOriginal={{false}} /> --}}
+                <Template @key="photo" @src={{this.listViewPhotoTemplate}} @showOriginal={{false}} />
+                <Template @key="video" @src={{this.listViewVideoTemplate}} @showOriginal={{false}} />
+            </ListView>
+        {{/if}}
+        <BottomNavigation @selected="Home" @onHomeIconLoaded={{this.startPageTour}} />
+    </GridLayout>
 </Page>
