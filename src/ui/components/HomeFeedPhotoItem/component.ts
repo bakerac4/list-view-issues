@@ -9,7 +9,8 @@ interface Args {
 }
 const maxHeight = 500;
 export default class HomeFeedListItem extends Component<Args> {
-    @tracked item = this.args.item;
+  @tracked item = this.args.item;
+  @tracked fullDescription = false;
 
     get resultForComponent() {
         // the grandparent node is null on android
@@ -138,5 +139,14 @@ export default class HomeFeedListItem extends Component<Args> {
     viewProfile() {
         const options = {} as NavigationOptions;
         Navigation.navigate('Profile', this.args.item.user, options);
+    }
+
+    @action
+    showFullDescription() {
+      if (this.fullDescription) {
+        this.fullDescription = false;
+      } else {
+        this.fullDescription = true;
+      }
     }
 }

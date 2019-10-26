@@ -6,6 +6,7 @@
         @width="30"
         verticalAlignment="center"
         horizontalAlignment="center"
+        borderRadius="100%"
         {{on "tap" this.viewProfile}} >
     </Image>
 
@@ -60,9 +61,14 @@
         <PostDescription @description={{@item.description}} />
     {{/if}} --}}
     <WrapLayout marginLeft="10" row="3" colSpan="4" orientation="horizontal">
-        <Label text="Test label" color="#000"/>
+        <Button {{on "tap" this.showFullDescription}} text="Show Full Description" />
         <Label text={{@item.product}} textWrap="true" color="#000"/>
         <Label text={{@item.product}} textWrap="true" color="#000"/>
+        {{#if this.fullDescription}}
+            <Label text="Full Description" />
+        {{else}}
+            <Label text="Short Description" />
+        {{/if}}
     </WrapLayout>
     <Label
         text={{@item.createdOn}}
