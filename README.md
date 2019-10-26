@@ -1,7 +1,12 @@
 # list-view-issues
 
-This README outlines the details of collaborating on this Glimmer application.
-A short introduction of this app could easily go here.
+To run do an npm install then
+`tns debug ios --bundle --debug-brk`
+
+Import spots are
+1) ListViewElement - create and update https://github.com/bakerac4/glimmer-native/blob/list-view-tracked-properties/src/dom/native/ListViewElement.ts#L55
+
+2) Schedule Re-render https://github.com/bakerac4/glimmer-native/blob/list-view-tracked-properties/index.ts#L228
 
 ## Prerequisites
 
