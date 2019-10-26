@@ -1,4 +1,25 @@
 <Page class="page home">
+    <ActionBar class="action-bar" height="60" flat="true">
+        <FlexboxLayout class="flex-center p-b-5" height="50">
+            <Image
+                row="0"
+                class="logo p-b-5"
+                @src="https://emberjs.com/images/tomsters/teaching-reverse-46f374215d0b08ae63f5e3f778cec5b5.png"
+                decodeHeightProperty="100"
+                height="50"
+                android:stretch="aspectFit"
+                ios:stretch="aspectFit"
+                id="logo-action-bar-image"
+            />
+        </FlexboxLayout>
+    </ActionBar>
+    <StackLayout>
+        {{#each @listViewItems key="@index" as |item|}}
+            {{#in-element item.node}}
+                <HomeFeedPhotoItem @item={{item.item}} />
+            {{/in-element}}
+        {{/each}}
+    </StackLayout>
     <GridLayout rows="auto,*,50">
         {{#if this.loadingInitialPosts}}
             <ActivityIndicator busy="true" />
@@ -7,11 +28,11 @@
                 @items={{this.posts}}
                 @itemTemplateSelector={{this.selectItemTemplate}}
                 @keyedTemplates={{this.keyedTemplates}}
-                iosEstimatedRowHeightProperty="0"
+                iosEstimatedRowHeight="0"
                 separatorColor="transparent"
                 row="1"
                 class="bg-white"
-                {{on "loadMoreItems" this.loadMore}}
+                {{!-- {{on "loadMoreItems" this.loadMore}} --}}
                 {{on "itemLoading" this.itemLoading}}
             >
                 {{!-- <Template @src={{this.listViewTemplate}} @showOriginal={{false}} /> --}}

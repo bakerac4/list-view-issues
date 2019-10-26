@@ -1,74 +1,74 @@
 {
-  "name": "list-view-issues",
-  "version": "0.0.0",
-  "description": "A brand new Glimmer Native app.",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
-  "scripts": {
-    "build": "ember build -prod",
-    "start": "ember server",
-    "lint:hbs": "ember-template-lint .",
-    "test": "ember test && yarn run lint:ts && yarn run lint:hbs",
-    "lint:ts": "tslint -c tslint.json 'src/**/*.ts' -t codeFrame",
-    "debug": "tns debug ios --debug-brk"
-  },
-  "dependencies": {
-    "@glimmer/application": "^0.13.0",
-    "@glimmer/application-pipeline": "^0.15.0",
-    "@glimmer/blueprint": "~0.13.0",
-    "@glimmer/bundle-compiler": "^0.41.0",
-    "@glimmer/compiler": "^0.41.0",
-    "@glimmer/component": "^0.14.0-alpha.9",
-    "@glimmer/encoder": "^0.41.0",
-    "@glimmer/inline-precompile": "^1.0.0",
-    "@glimmer/interfaces": "^0.41.0",
-    "@glimmer/object-reference": "^0.41.0",
-    "@glimmer/opcode-compiler": "^0.41.0",
-    "@glimmer/program": "^0.41.0",
-    "@glimmer/reference": "^0.41.0",
-    "@glimmer/resolver": "^0.4.1",
-    "@glimmer/runtime": "^0.41.0",
-    "@glimmer/syntax": "^0.41.0",
-    "@glimmer/test-helpers": "^0.31.1",
-    "@glimmer/tracking": "^0.14.0-alpha.9",
-    "@glimmer/util": "^0.41.0",
-    "@glimmer/vm": "^0.41.0",
-    "@glimmer/wire-format": "^0.41.0",
-    "glimmer-analyzer": "https://github.com/bakerac4/glimmer-analyzer.git#master",
-    "glimmer-native": "git+https://github.com/bakerac4/glimmer-native.git#f2440e140f97bbc71c0726cf7f3ae53dc444527f",
-    "nativescript-theme-core": "^1.0.6",
-    "nativescript-ui-listview": "^7.1.0",
-    "tns-core-modules": "^6.0.7"
-  },
-  "devDependencies": {
-    "@simple-dom/interface": "^1.4.0",
-    "@types/qunit": "^2.0.31",
-    "broccoli-asset-rev": "^2.5.0",
-    "ember-cli": "^3.9.0",
-    "ember-cli-dependency-checker": "^2.0.1",
-    "ember-cli-inject-live-reload": "^1.6.1",
-    "tslint": "^5.11.0",
-    "node-sass": "^4.12.0",
-    "ember-template-lint": "^1.0.0-beta.6",
-    "ember-cli-uglify": "^2.0.0-beta.1",
-    "qunitjs": "^2.3.3",
-    "typescript": "^3.4.5",
-    "nativescript-dev-webpack": "^1.0.1",
-    "tns-platform-declarations": "^6.0.6"
-  },
-  "engines": {
-    "node": ">= 4.0"
-  },
-  "nativescript": {
-    "id": "org.nativescript.demo",
-    "tns-android": {
-      "version": "6.1.2"
+    "name": "list-view-issues",
+    "version": "0.0.0",
+    "description": "A brand new Glimmer Native app.",
+    "directories": {
+        "doc": "doc",
+        "test": "tests"
     },
-    "tns-ios": {
-      "version": "6.1.1"
-    }
-  },
-  "private": true
+    "scripts": {
+        "build": "ember build -prod",
+        "start": "ember server",
+        "lint:hbs": "ember-template-lint .",
+        "test": "ember test && yarn run lint:ts && yarn run lint:hbs",
+        "lint:ts": "tslint -c tslint.json 'src/**/*.ts' -t codeFrame",
+        "debug": "tns debug ios --debug-brk"
+    },
+    "dependencies": {
+        "@glimmer/application": "^0.13.0",
+        "@glimmer/application-pipeline": "^0.15.0",
+        "@glimmer/blueprint": "~0.13.0",
+        "@glimmer/bundle-compiler": "^0.41.0",
+        "@glimmer/compiler": "^0.41.0",
+        "@glimmer/component": "^0.14.0-alpha.9",
+        "@glimmer/encoder": "^0.41.0",
+        "@glimmer/inline-precompile": "^1.0.0",
+        "@glimmer/interfaces": "^0.41.0",
+        "@glimmer/object-reference": "^0.41.0",
+        "@glimmer/opcode-compiler": "^0.41.0",
+        "@glimmer/program": "^0.41.0",
+        "@glimmer/reference": "^0.41.0",
+        "@glimmer/resolver": "^0.4.1",
+        "@glimmer/runtime": "^0.41.0",
+        "@glimmer/syntax": "^0.41.0",
+        "@glimmer/test-helpers": "^0.31.1",
+        "@glimmer/tracking": "^0.14.0-alpha.9",
+        "@glimmer/util": "^0.41.0",
+        "@glimmer/vm": "^0.41.0",
+        "@glimmer/wire-format": "^0.41.0",
+        "glimmer-analyzer": "https://github.com/bakerac4/glimmer-analyzer.git#master",
+        "glimmer-native": "git+https://github.com/bakerac4/glimmer-native.git#list-view-tracked-properties",
+        "nativescript-theme-core": "^1.0.6",
+        "nativescript-ui-listview": "^7.1.0",
+        "tns-core-modules": "^6.0.7"
+    },
+    "devDependencies": {
+        "@simple-dom/interface": "^1.4.0",
+        "@types/qunit": "^2.0.31",
+        "broccoli-asset-rev": "^2.5.0",
+        "ember-cli": "^3.9.0",
+        "ember-cli-dependency-checker": "^2.0.1",
+        "ember-cli-inject-live-reload": "^1.6.1",
+        "tslint": "^5.11.0",
+        "node-sass": "^4.12.0",
+        "ember-template-lint": "^1.0.0-beta.6",
+        "ember-cli-uglify": "^2.0.0-beta.1",
+        "qunitjs": "^2.3.3",
+        "typescript": "^3.4.5",
+        "nativescript-dev-webpack": "^1.0.1",
+        "tns-platform-declarations": "^6.0.6"
+    },
+    "engines": {
+        "node": ">= 4.0"
+    },
+    "nativescript": {
+        "id": "org.nativescript.demo",
+        "tns-android": {
+            "version": "6.1.2"
+        },
+        "tns-ios": {
+            "version": "6.1.1"
+        }
+    },
+    "private": true
 }

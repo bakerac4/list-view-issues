@@ -1,10 +1,12 @@
 import Component, { tracked } from '@glimmer/component';
 import { action } from 'glimmer-native';
-import { ListViewEventData, ListViewLinearLayout, RadListView } from 'nativescript-ui-listview';
+import { ListViewEventData, ListViewLinearLayout } from 'nativescript-ui-listview';
 import { ObservableArray } from 'tns-core-modules/data/observable-array';
 import { isIOS } from 'tns-core-modules/platform';
 import { screen } from 'tns-core-modules/platform/platform';
 import { ListView } from 'tns-core-modules/ui/list-view';
+
+import { getData } from '../../../utils/data';
 
 export default class ListViewIssues extends Component {
     // TODO; Find way to remove this and still have compiler know about paging decorator methods
@@ -24,8 +26,8 @@ export default class ListViewIssues extends Component {
         // this.layout.scrollDirection = ListViewScrollDirection.Vertical;
         // this.layout.itemInsertAnimation = ListViewItemAnimation.Scale;
         this._dataItems = new ObservableArray<any>();
-        let posts: any = await this.loadModels();
-        posts = this.calculateCorrectMediaHeight(posts);
+        let posts: any = await getData();
+        // posts = this.calculateCorrectMediaHeight(posts);
         this._dataItems.push(posts);
         this.loadingInitialPosts = false;
     }
@@ -54,20 +56,20 @@ export default class ListViewIssues extends Component {
         this._dataItems = new ObservableArray<any>(newValue);
     }
 
-    @action
-    async loadMore(args) {
-        const that = new WeakRef(this);
-        const listView: RadListView = args.object;
-        let posts: any[] = await this.loadMoreModels();
-        if (posts.length > 0) {
-            posts = this.calculateCorrectMediaHeight(posts);
-            that.get()._dataItems.push(posts);
-            listView.notifyLoadOnDemandFinished();
-        } else {
-            args.returnValue = false;
-            listView.notifyLoadOnDemandFinished(true);
-        }
-    }
+    // @action
+    // async loadMore(args) {
+    //     const that = new WeakRef(this);
+    //     const listView: RadListView = args.object;
+    //     let posts: any[] = await this.loadMoreModels();
+    //     if (posts.length > 0) {
+    //         posts = this.calculateCorrectMediaHeight(posts);
+    //         that.get()._dataItems.push(posts);
+    //         listView.notifyLoadOnDemandFinished();
+    //     } else {
+    //         args.returnValue = false;
+    //         listView.notifyLoadOnDemandFinished(true);
+    //     }
+    // }
 
     @action
     itemLoading(args: ListViewEventData) {
@@ -76,17 +78,17 @@ export default class ListViewIssues extends Component {
             ios.selectionStyle = UITableViewCellSelectionStyle.None;
         }
 
-        const view = args.view as any;
+        // const view = args.view as any;
 
-        if (view) {
-            const component = view.__GlimmerComponent__;
-            const oldState = component.state.value();
-            // set showOriginal to false
-            component.update({
-                ...oldState,
-                showOriginal: false
-            });
-        }
+        // if (view) {
+        //     const component = view.__GlimmerComponent__;
+        //     const oldState = component.state.value();
+        //     // set showOriginal to false
+        //     component.update({
+        //         ...oldState,
+        //         showOriginal: false
+        //     });
+        // }
     }
     @action
     selectItemTemplate(item, index, items) {

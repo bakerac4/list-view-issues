@@ -1,0 +1,69 @@
+<GridLayout rows="50, *, auto, auto, 40" columns="50, auto, auto, *" class="home-feed-list-item bg-white p-b-20">
+    <Image @src={{@item.user.presignedThumbnailUrl}}
+        col="0"
+        row="0"
+        @height="30"
+        @width="30"
+        verticalAlignment="center"
+        horizontalAlignment="center"
+        {{on "tap" this.viewProfile}} >
+    </Image>
+
+    <Label
+        text={{@item.user.userName}}
+        verticalAlignment="center"
+        color="black"
+        fontSize="15"
+        class="ssp-bold"
+        col="1" row="0"
+        {{on "tap" this.viewProfile}}
+    />
+    {{#if @item.user.showVerified}}
+        <VerifiedIcon fontSize="30" ios:marginTop="10" android:marginTop="12" col="2" row="0" />
+    {{/if}}
+    <Icon
+        col="3"
+        row="0"
+        @icon="f141"
+        class="android-lbl"
+        fontSize="30"
+        verticalAlignment="center"
+        horizontalAlignment="right"
+        padding="10"
+        {{on "tap" this.showActionsMenu}}
+    />
+    <StackLayout height={{@item.imageHeight}} colSpan="4" row="1" class="image-container">
+        <Image
+            @src={{if @showOriginal @item.presignedRawDisplayUrl @item.presignedDisplayUrl}}
+            stretch="aspectFit"
+            placeholder="~/images/placeholder.png"
+            height={{@item.imageHeight}}
+            {{!-- width={{@item.imageWidth}} --}}
+            class="bg-light-gray"
+            {{on "doubleTap" this.toggleLikeStatus}}
+            {{on "tap" this.toggleColor}}
+        />
+    </StackLayout>
+    <VerifiedIcon
+        row="2"
+        col="0"
+        fontSize="25"
+        verticalAlignment="center"
+        padding="10"
+        class={{if @item.likedByUser "on"}}
+        {{on "tap" this.toggleLikeStatus}}
+    />
+    <Label row="2" col="1" text={{@item.likes}} verticalAlignment="center" color="black" fontSize="16" />
+    {{!-- {{#if @item.description}}
+        <PostDescription @description={{@item.description}} />
+    {{/if}} --}}
+    <Label
+        text={{@item.createdOn}}
+        row="4"
+        colSpan="4"
+        verticalAlignment="bottom"
+        paddingTop="5"
+        paddingLeft="10"
+        class="color-medium-gray"
+    />
+</GridLayout>

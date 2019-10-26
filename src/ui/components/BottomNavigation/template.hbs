@@ -1,0 +1,74 @@
+<GridLayout row={{this.row}} columns="*,*,*,*,*" borderTopWidth="0.5" borderTopColor="gray" class="bottom-navigation">
+    <StackLayout col="0" verticalAlignment="center" horizontalAlignment="center" {{on "loaded" this.onHomeIconLoaded}}>
+        <Icon
+            @icon={{if (eq @selected "Home") "e90a" "e90b"}}
+            @type="icon"
+            fontSize="25"
+            padding="10"
+            textAlignment="center"
+            verticalAlignment="center"
+            horizontalAlignment="center"
+            {{on "tap" this.onNavTap "Home"}}
+        />
+    </StackLayout>
+    <Icon
+        @icon="f002"
+        @type={{if (eq @selected "Search") "fas" "fa"}}
+        col="1"
+        fontSize="25"
+        padding="10"
+        textAlignment="center"
+        verticalAlignment="center"
+        horizontalAlignment="center"
+        {{on "tap" this.onNavTap "Search"}}
+    />
+    <StackLayout col="2" verticalAlignment="center" horizontalAlignment="center" {{on "loaded" this.onPostIconLoaded}}>
+        <Icon
+            @icon="e905"
+            @type="icon"
+            class="android-lbl p-x-10"
+            id="bottom-nav-new-post"
+            fontSize="35"
+            textAlignment="center"
+            verticalAlignment="center"
+            horizontalAlignment="center"
+            {{on "tap" this.onNavTap "PostGallery"}}
+        />
+    </StackLayout>
+
+    {{#if (and (not (eq @selected "Notifications")) this.hasNewActivity)}}
+        <Icon
+            @icon="f111"
+            @type="fas"
+            col="3"
+            class="m-l-10 color-light-blue"
+            fontSize="10"
+            padding="10"
+            horizontalAlignment="center"
+            verticalAlignment="bottom"
+            {{on "tap" this.onNavTap "Notifications"}}
+        />
+    {{/if}}
+
+    {{!-- <ProfilePicture
+        @user={{this.me}}
+        col="4"
+        height="25"
+        width="25"
+        padding="5"
+        verticalAlignment="center"
+        horizontalAlignment="center"
+        {{on "tap" this.onNavTap "Profile"}}
+    /> --}}
+    <Icon
+        @icon="f406"
+        @type={{if (eq @selected "Profile") "fas" "fa"}}
+        col="4"
+        fontSize="25"
+        padding="10"
+        textAlignment="center"
+        verticalAlignment="center"
+        horizontalAlignment="center"
+        {{on "tap" this.onNavTap "Profile"}}
+    />
+</GridLayout>
