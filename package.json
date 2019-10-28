@@ -37,7 +37,7 @@
         "@glimmer/vm": "^0.41.0",
         "@glimmer/wire-format": "^0.41.0",
         "glimmer-analyzer": "https://github.com/bakerac4/glimmer-analyzer.git#master",
-        "glimmer-native": "git+https://github.com/bakerac4/glimmer-native.git#list-view-tracked-properties",
+        "glimmer-native": "git+https://github.com/bakerac4/glimmer-native.git#725ba1e27173fa359e36fb8455d6002644735f61",
         "nativescript-theme-core": "^1.0.6",
         "nativescript-ui-listview": "^7.1.0",
         "tns-core-modules": "^6.0.7"
