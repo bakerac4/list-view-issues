@@ -43,8 +43,8 @@
             height={{@item.imageHeight}}
             {{!-- width={{@item.imageWidth}} --}}
             class="bg-light-gray"
-            {{on "doubleTap" this.toggleLikeStatus}}
-            {{on "tap" this.toggleColor}}
+            {{!-- {{on "doubleTap" this.toggleLikeStatus}}
+            {{on "tap" this.toggleColor}} --}}
         />
     </StackLayout>
     <VerifiedIcon
@@ -65,9 +65,9 @@
         <Label text={{@item.product}} textWrap="true" color="#000"/>
         <Label text={{@item.product}} textWrap="true" color="#000"/>
         {{#if this.fullDescription}}
-            <Label text="Full Description" />
+            <Label text="Full Description" color="#000"/>
         {{else}}
-            <Label text="Short Description" />
+            <Label text="Short Description" color="#000"/>
         {{/if}}
     </WrapLayout>
     <Label
