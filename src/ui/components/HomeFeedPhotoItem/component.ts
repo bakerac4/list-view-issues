@@ -5,12 +5,26 @@ import * as dialogs from 'tns-core-modules/ui/dialogs';
 
 interface Args {
     item: any;
-    showOriginal: boolean;
+    fullDescription: boolean;
 }
 const maxHeight = 500;
 export default class HomeFeedListItem extends Component<Args> {
-  @tracked item = this.args.item;
-  @tracked fullDescription = false;
+    @tracked item = this.args.item;
+    @tracked defaultFullDescription = this.args.fullDescription;
+    @tracked
+    get fullDescription() {
+        return this.defaultFullDescription;
+    }
+    // @tracked
+    // get fullDescription() {
+    //     return this.args.fullDescription || false;
+    //     return this.args.item.fullDescription === true || this.args.item.fullDescription === false
+    //         ? this.args.item.fullDescription
+    //         : this.defaultFullDescription;
+    // }
+    // set fullDescription(value) {
+    //     this.args.fullDescription = value;
+    // }
 
     get resultForComponent() {
         // the grandparent node is null on android
@@ -143,10 +157,19 @@ export default class HomeFeedListItem extends Component<Args> {
 
     @action
     showFullDescription() {
-      if (this.fullDescription) {
-        this.fullDescription = false;
-      } else {
-        this.fullDescription = true;
-      }
+        if (this.fullDescription) {
+            // this.item = {
+            //     ...this.args.item,
+            //     fullDescription: false
+            // };
+            // this.fullDescription = false;
+            this.args.item.fullDescription = false;
+        } else {
+            this.args.item.fullDescription = true;
+            // this.item = {
+            //     ...this.args.item,
+            //     fullDescription: true
+            // };
+        }
     }
 }

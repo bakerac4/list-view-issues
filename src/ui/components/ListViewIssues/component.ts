@@ -16,7 +16,8 @@ export default class ListViewIssues extends Component {
     @tracked keyedTemplates = ['photo', 'video'];
     listView: ListView;
 
-    @tracked listViewPhotoTemplate = `<HomeFeedPhotoItem @item={{this.item}} @showOriginal={{this.showOriginal}}/>`;
+    @tracked
+    listViewPhotoTemplate = `<HomeFeedPhotoItem @item={{this.item}} @fullDescription={{this.fullDescription}}/>`;
     @tracked listViewVideoTemplate = `<HomeFeedVideoItem @item={{this.item}} @showOriginal={{this.showOriginal}} />`;
 
     private layout: ListViewLinearLayout;
