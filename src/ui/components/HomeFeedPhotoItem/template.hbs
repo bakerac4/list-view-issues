@@ -64,7 +64,7 @@
         <Button {{on "tap" this.showFullDescription}} text="Show Full Description" />
         <Label text={{@item.product}} textWrap="true" color="#000"/>
         <Label text={{@item.product}} textWrap="true" color="#000"/>
-        {{#if @item.fullDescription}}
+        {{#if this.fullDescription}}
             <Label text="Full Description" color="#000"/>
         {{else}}
             <Label text="Short Description" color="#000"/>

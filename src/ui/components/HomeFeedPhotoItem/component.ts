@@ -10,11 +10,23 @@ interface Args {
 const maxHeight = 500;
 export default class HomeFeedListItem extends Component<Args> {
     @tracked item = this.args.item;
-    @tracked defaultFullDescription = this.args.fullDescription;
     @tracked
     get fullDescription() {
-        return this.defaultFullDescription;
+        return this.args.item.fullDescription || false;
     }
+
+    // @action
+    // showFullDescription() {
+    //     if (this.fullDescription) {
+    //         this.args.item.fullDescription = false;
+    //     } else {
+    //         this.args.item.fullDescription = true;
+    //     }
+    // }
+    // @tracked
+    // get fullDescription() {
+    //     return this.defaultFullDescription;
+    // }
     // @tracked
     // get fullDescription() {
     //     return this.args.fullDescription || false;
@@ -158,18 +170,9 @@ export default class HomeFeedListItem extends Component<Args> {
     @action
     showFullDescription() {
         if (this.fullDescription) {
-            // this.item = {
-            //     ...this.args.item,
-            //     fullDescription: false
-            // };
-            // this.fullDescription = false;
             this.args.item.fullDescription = false;
         } else {
             this.args.item.fullDescription = true;
-            // this.item = {
-            //     ...this.args.item,
-            //     fullDescription: true
-            // };
         }
     }
 }

@@ -13,13 +13,13 @@
             />
         </FlexboxLayout>
     </ActionBar>
-    <StackLayout>
+    {{!-- <StackLayout>
         {{#each @listViewItems key="@index" as |item|}}
             {{#in-element item.node}}
                 <HomeFeedPhotoItem @item={{item.item}} />
             {{/in-element}}
         {{/each}}
-    </StackLayout>
+    </StackLayout> --}}
     <GridLayout rows="auto,*,50">
         {{#if this.loadingInitialPosts}}
             <ActivityIndicator busy="true" />
@@ -32,10 +32,8 @@
                 separatorColor="transparent"
                 row="1"
                 class="bg-white"
-                {{!-- {{on "loadMoreItems" this.loadMore}} --}}
                 {{on "itemLoading" this.itemLoading}}
             >
-                {{!-- <Template @src={{this.listViewTemplate}} @showOriginal={{false}} /> --}}
                 <Template @key="photo" @src={{this.listViewPhotoTemplate}} @showOriginal={{false}} />
                 <Template @key="video" @src={{this.listViewVideoTemplate}} @showOriginal={{false}} />
             </ListView>
