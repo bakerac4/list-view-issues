@@ -16,7 +16,9 @@
     <StackLayout>
         {{#each @listViewItems key="@index" as |item|}}
             {{#in-element item.node}}
-                <HomeFeedPhotoItem @item={{item.item}} />
+                {{item.template}}
+                {{!-- {{item.template item=item.item}} --}}
+                {{!-- <HomeFeedPhotoItem @item={{item.item}} /> --}}
             {{/in-element}}
         {{/each}}
     </StackLayout>
@@ -27,13 +29,13 @@
             <ListView
                 @items={{this.posts}}
                 @itemTemplateSelector={{this.selectItemTemplate}}
-                @keyedTemplates={{this.keyedTemplates}}
                 iosEstimatedRowHeight="0"
                 separatorColor="transparent"
                 row="1"
                 class="bg-white"
                 {{on "itemLoading" this.itemLoading}}
             >
+                {{!-- <Template @src={{this.listViewPhotoTemplate}} @showOriginal={{false}} /> --}}
                 <Template key="photo" @src={{this.listViewPhotoTemplate}} @showOriginal={{false}} />
                 <Template key="video" @src={{this.listViewVideoTemplate}} @showOriginal={{false}} />
             </ListView>

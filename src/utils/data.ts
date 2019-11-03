@@ -9,14 +9,17 @@ export function getData() {
             if (randomImageId === 1) {
                 (dataCopy[i] as any).imageHeight = '300';
                 (dataCopy[i] as any).image =
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB7Qd2mcr5KC9e2J8W6ks23MHbXXRT1AWzPBl2I2I75Lza5VWF';
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB7Qd2mcr5KC9e2J8W6ks23MHbXXRT1AWzPBl2I2I75Lza5VWF';
+                  (dataCopy[i] as any).isVideo = true;
             } else {
                 (dataCopy[i] as any).imageHeight = '172';
                 (dataCopy[i] as any).image =
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1gxcD5ZL_XmKCPAyDrLkSHl4YU8hOYU_QGpTk2UVwPB3Jx9WO1w&s';
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1gxcD5ZL_XmKCPAyDrLkSHl4YU8hOYU_QGpTk2UVwPB3Jx9WO1w&s';
+                  (dataCopy[i] as any).isVideo = false;
             }
             (dataCopy[i] as any).userThumbnailUrl = 'https://picsum.photos/300/300';
             (dataCopy[i] as any).createdOn = '2d ago';
+            
         }
 
         setTimeout(() => {
