@@ -16,9 +16,9 @@
     <StackLayout>
         {{#each @listViewItems key="@index" as |item|}}
             {{#in-element item.node}}
-                {{item.template}}
-                {{!-- {{item.template item=item.item}} --}}
-                {{!-- <HomeFeedPhotoItem @item={{item.item}} /> --}}
+                {{component item.template}}
+                {{!-- {{item.template}}
+                <HomeFeedPhotoItem @item={{item.item}} /> --}}
             {{/in-element}}
         {{/each}}
     </StackLayout>
